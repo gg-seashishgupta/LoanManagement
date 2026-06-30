@@ -133,22 +133,33 @@ npm run dev
 http://localhost:5173
 ```
 
+5. Log in with any demo account below (run `npm run seed` first if you haven't).
+
 ---
 
 ## Demo Accounts
 
-After running `npm run seed` in the backend:
+Run `npm run seed` in the backend, then use these credentials on the login page:
 
-| Role | Email | Password |
-|------|-------|----------|
-| admin | admin@lms.com | admin123 |
-| sales | sales@lms.com | sales123 |
-| sanction | sanction@lms.com | sanction123 |
-| disbursement | disbursement@lms.com | disbursement123 |
-| collection | collection@lms.com | collection123 |
-| borrower | borrower@lms.com | borrower123 |
+| Role | Email | Password | Use for |
+|------|-------|----------|---------|
+| **Admin** | `admin@lms.com` | `admin123` | Full access + dashboard stats |
+| **Sales** | `sales@lms.com` | `sales123` | View borrowers without loans |
+| **Sanction** | `sanction@lms.com` | `sanction123` | Approve / reject loan applications |
+| **Disbursement** | `disbursement@lms.com` | `disbursement123` | Mark sanctioned loans as disbursed |
+| **Collection** | `collection@lms.com` | `collection123` | Record payments (UTR) on disbursed loans |
+| **Borrower** | `borrower@lms.com` | `borrower123` | Apply for loans, view my loans |
 
-**Note:** Public registration only creates `borrower` accounts. Executive roles are seeded or managed internally — not exposed via public signup.
+**Quick copy:**
+
+```
+admin@lms.com / admin123
+borrower@lms.com / borrower123
+```
+
+The seeded **borrower** account already has profile, BRE, and salary slip data filled in — you can go straight to the loan application step.
+
+**Note:** Public registration only creates `borrower` accounts. Executive roles are created via `npm run seed`, not public signup.
 
 ---
 
