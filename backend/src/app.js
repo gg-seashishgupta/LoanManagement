@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (_req, res) => {
-  res.send("CredFlow LMS API is running");
+  res.send("Loan Management System API is running");
 });
 
 app.get("/health", (_req, res) => {
