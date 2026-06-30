@@ -6,10 +6,17 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const uploadDir = path.join(__dirname, "../../uploads/salary-slips");
+const uploadDir =
+  process.env.VERCEL === "1"
+    ? path.join("/tmp", "uploads", "salary-slips")
+    : path.join(__dirname, "../../uploads/salary-slips");
 
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
+try {
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { recursive: true });
+  }
+} catch (error) {
+  console.error("Failed to prepare upload directory:", error.message);
 }
 
 const storage = multer.diskStorage({
